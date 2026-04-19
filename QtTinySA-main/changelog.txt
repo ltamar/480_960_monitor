@@ -1,0 +1,160 @@
+v1.2.0
+
+enhancements
+
+    Antenna pattern manual measurement feature added
+    Signal Level Monitor measurement feature added
+    Correction tables feature added
+    Added user-selectable trace colours to preferences/settings
+    Added feature to allow user to create/modify preset types
+
+    Made GUI controls work when tinySA is not connected
+    Code changes for PyQt6 with PyQt5 backwards compatibility
+    LNB Mode now uses config database and new user-preset types
+
+    Changed waterfall size slider to a show/hide checkbox (unable to fix errors caused by size adjustment) and added auto-range checkbox
+    Filled marker on-screen text values background with black
+    Set spur combobox default to auto
+    Removed some repetitive code into the ModelView class
+    Tweaks to dialogue and logging text
+    Sub-window updates to make layout of buttons more consistent
+    PopUp message function improved
+    Linting changes
+    Some functions merged into modelview class
+    Change to using uic.loadUi instead of needing to create .py files with pyuic
+    Improvements to view updates of tables
+    * database structure changes *
+    Only off-screen markers are set in window if ^ button is pressed
+    Frequency precision and units added to fading graphs
+    Turning a marker off hides its fading graph
+    improved GUI initialisation
+
+fixes
+
+    fixed waterfall index errors by removing resize slider and replacing it with a checkbox to show/hide
+    fix issue #113
+    fix issue #111
+    fix issue #112
+    Enhancement #103
+    ui bugfix
+    nuitka-project pyqt6 bugfix
+    fixed auto-update config database
+    fixed add row / delete row in preset marker settings
+    fixed marker dragging displayed freq
+    separated settings and fixed bands/markers screens
+    fix shape factor for Phase Noise calculation
+    fix database update
+    Fixed bug when clicking browse tinySA and is not connected
+
+
+v1.1.0
+?
+
+v0.11.9
+
+Bugfixes
+If detected device is not a tinySA, don't crash but log info to terminal
+
+v0.11.8
+
+Bugfixes
+Issue 66: preferences still save to the config database if a TinySA is not connected.
+Issue 67: file >Browse TinySA shows correct bitmap file and 'save' saves the selected (clicked-on) file.
+Fixed trace updates stopping for very fast sweeps.
+
+The single file executables include the config database. If you are upgrading from a version older than v0.11.7, rename the old database first and the new one will be copied automatically.
+
+QtTinySA.bin is a new Linux executable that was built using the 'Nuitka' Python Compiler and works on Ubuntu 24.04 and 22.04 and Debian v12. It does not work on earlier versions.
+
+QtTinySA.exe is a new Windows executable that was built using the 'Nuitka' Python Compiler.
+
+v0.11.7
+
+NOTE: This release requires the updated config database QtTSAprefs.db. It is backwards compatible with firmware older than 1.4.177 as far back as 1.4.120. It does not work with firmware 1.4.109 or earlier.
+
+Much faster stopping on slow sweeps when 'stop' is pressed.
+Changed the way the GUI screen is updated by the measurement thread. Previously it was updated every 20 measurements, so the update rate varied and for very fast sweeps could cause the GUI to freeze. Now it is a fixed rate and set in the 'preferences' dialogue in mS and there is a 'update rate indicator' at the bottom left of the main screen.
+Changed measurement Fn to use the new scanraw auto-repeat option available with firmware 1.4.177 onwards.
+Zero span now working as well as it can without re-coding
+Added code for enhancement #58 (detect/choose from several connected tinySA, request by Herb Walker)
+Added box to set the maximum scan frequency above 6GHz in 'preferences' dialogue (request by @ashjmckenzie )
+Changed 'max' trace to permanent hold until scanning stopped/restarted, instead of a decaying max based on scan 'memory' (request by @CliveTombs)
+Marker min/max detection frequency boundary lines added (request by @CliveTombs)
+SyncTime, AverageBox & Sample repeat added to config database
+Removed padding from the GUI display
+Set Scan to Graph button (<>) added
+Clicking a marker centres the sweep freq onto that marker
+Units on freq axis now set automatically (changed preferences database to Hz instead of MHz)
+Changes to openport Fn and testport Fn with error trapping
+
+Bugfix: selecting a marker set freq incorrectly
+Bugfix: band selection combobox didn't work unless tinySA hardware was detected
+Bugfix: (#56) band add fail after preferences window opened
+Bugfix: filebrowse picture not being shown if a csv was selected first
+Bugfix: min/max marker Fn
+Bugfix: when marker selected in band combo box
+
+Thank you to @CliveTombs for a lot of testing.
+
+v0.11.6
+Bugfix: selecting a marker set freq incorrectly
+Bugfix: band selection combobox didn't work unless tinySA hardware was detected
+Updated preferences database with freqs in Hz instead of MHz
+
+v0.11.4 bugfixes
+Fixed band add fail after preferences window opened
+Fixed filebrowse picture not being shown if a csv was selected first
+removed gui update at end of scan
+
+v0.11.3
+backwards compatible with firmware older than 4.177
+scanraw auto-repeat code tidied up
+changes to openport and testport with error trapping
+much faster stopping on slow sweeps
+bug #56 still to fix
+testing still to do
+
+v0.11.2 wip
+auto-repeat scanraw changes
+
+v0.11.1
+Fix multiple device detection for pySerial returning no product info in Windows
+
+v0.10.7.n
+max hold fixed
+zero span working as well as it can without re-coding
+selection of device when multiple tinySA tested
+
+v0.10.7m
+code for enhancement #58 (more than one device)
+fixed various bugs caused by changes
+work in progress
+
+v0.10.7i
+Changed 'max' trace to permanent hold until scanning stopped/restarted, instead of a decaying max based on scan 'memory'
+
+v0.10.7h
+working zero span
+
+v0.10.7g wip
+fixed min/max marker Fn
+reversed change to averaging as it was defective
+fixed span bug when marker selected in band combo box
+
+v0.10.7f wip
+marker min/max detection boundary
+syncTime, AverageBox & Sample repeat added to config database
+trace averaging improvement but more to do
+potentially a lot of bugs added
+
+v0.10.7d
+Removed padding from display
+Set Scan to Graph button added
+
+v0.10.7c
+Marker bug fixed
+Marker click centres freq on marker
+
+v0.10.7a
+improved zero span?
+auto units on freq axis

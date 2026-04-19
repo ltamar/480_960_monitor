@@ -1,0 +1,9 @@
+__pycache__
+*~
+/QtTinySA/
+/QtTinySA-Win_11/
+build/
+dist/
+firmware_possible_issue.txt
+/executables
+/venv
